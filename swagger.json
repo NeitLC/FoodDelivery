@@ -1,0 +1,1132 @@
+{
+  "paths": {
+    "/user/{id}": {
+      "get": {
+        "operationId": "getOneBaseUserControllerUser",
+        "summary": "Retrieve a single User",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          },
+          {
+            "name": "fields",
+            "description": "Selects resource fields. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#select\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "join",
+            "description": "Adds relational resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#join\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "cache",
+            "description": "Reset cache (if was enabled). <a href=\"https://github.com/nestjsx/crud/wiki/Requests#cache\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "minimum": 0,
+            "maximum": 1,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get one base response",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      },
+      "patch": {
+        "operationId": "updateOneBaseUserControllerUser",
+        "summary": "Update a single User",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          },
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "operationId": "replaceOneBaseUserControllerUser",
+        "summary": "Replace a single User",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          },
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "operationId": "deleteOneBaseUserControllerUser",
+        "summary": "Delete a single User",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete one base response"
+          }
+        }
+      }
+    },
+    "/user": {
+      "get": {
+        "operationId": "getManyBaseUserControllerUser",
+        "summary": "Retrieve multiple Users",
+        "parameters": [
+          {
+            "name": "fields",
+            "description": "Selects resource fields. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#select\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "s",
+            "description": "Adds search condition. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#search\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "description": "Adds filter condition. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#filter\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "or",
+            "description": "Adds OR condition. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#or\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "sort",
+            "description": "Adds sort by field. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#sort\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "join",
+            "description": "Adds relational resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#join\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "limit",
+            "description": "Limit amount of resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#limit\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "description": "Offset amount of resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#offset\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "description": "Page portion of resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#page\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "cache",
+            "description": "Reset cache (if was enabled). <a href=\"https://github.com/nestjsx/crud/wiki/Requests#cache\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "minimum": 0,
+            "maximum": 1,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get many base response",
+            "schema": {}
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "operationId": "createOneBaseUserControllerUser",
+        "summary": "Create a single User",
+        "parameters": [
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Get create one base response",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/user/bulk": {
+      "post": {
+        "operationId": "createManyBaseUserControllerUser",
+        "summary": "Create multiple Users",
+        "parameters": [
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateManyUserDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Get create many base response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/order/{id}": {
+      "get": {
+        "operationId": "getOneBaseOrderControllerOrder",
+        "summary": "Retrieve a single Order",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          },
+          {
+            "name": "fields",
+            "description": "Selects resource fields. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#select\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "join",
+            "description": "Adds relational resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#join\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "cache",
+            "description": "Reset cache (if was enabled). <a href=\"https://github.com/nestjsx/crud/wiki/Requests#cache\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "minimum": 0,
+            "maximum": 1,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get one base response",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      },
+      "patch": {
+        "operationId": "updateOneBaseOrderControllerOrder",
+        "summary": "Update a single Order",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          },
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "operationId": "replaceOneBaseOrderControllerOrder",
+        "summary": "Replace a single Order",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          },
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "operationId": "deleteOneBaseOrderControllerOrder",
+        "summary": "Delete a single Order",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete one base response"
+          }
+        }
+      }
+    },
+    "/order": {
+      "get": {
+        "operationId": "getManyBaseOrderControllerOrder",
+        "summary": "Retrieve multiple Orders",
+        "parameters": [
+          {
+            "name": "fields",
+            "description": "Selects resource fields. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#select\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "s",
+            "description": "Adds search condition. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#search\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "description": "Adds filter condition. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#filter\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "or",
+            "description": "Adds OR condition. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#or\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "sort",
+            "description": "Adds sort by field. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#sort\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "join",
+            "description": "Adds relational resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#join\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "limit",
+            "description": "Limit amount of resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#limit\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "description": "Offset amount of resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#offset\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "description": "Page portion of resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#page\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "cache",
+            "description": "Reset cache (if was enabled). <a href=\"https://github.com/nestjsx/crud/wiki/Requests#cache\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "minimum": 0,
+            "maximum": 1,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get many base response",
+            "schema": {}
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "operationId": "createOneBaseOrderControllerOrder",
+        "summary": "Create a single Order",
+        "parameters": [
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Get create one base response",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/order/bulk": {
+      "post": {
+        "operationId": "createManyBaseOrderControllerOrder",
+        "summary": "Create multiple Orders",
+        "parameters": [
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateManyOrderDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Get create many base response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Order"
+              }
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/order-item/{id}": {
+      "get": {
+        "operationId": "getOneBaseOrderItemControllerOrderItem",
+        "summary": "Retrieve a single OrderItem",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          },
+          {
+            "name": "fields",
+            "description": "Selects resource fields. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#select\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "join",
+            "description": "Adds relational resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#join\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "cache",
+            "description": "Reset cache (if was enabled). <a href=\"https://github.com/nestjsx/crud/wiki/Requests#cache\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "minimum": 0,
+            "maximum": 1,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get one base response",
+            "schema": {
+              "$ref": "#/definitions/OrderItem"
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      },
+      "patch": {
+        "operationId": "updateOneBaseOrderItemControllerOrderItem",
+        "summary": "Update a single OrderItem",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          },
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/OrderItem"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/OrderItem"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "operationId": "replaceOneBaseOrderItemControllerOrderItem",
+        "summary": "Replace a single OrderItem",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          },
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/OrderItem"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/OrderItem"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "operationId": "deleteOneBaseOrderItemControllerOrderItem",
+        "summary": "Delete a single OrderItem",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete one base response"
+          }
+        }
+      }
+    },
+    "/order-item": {
+      "get": {
+        "operationId": "getManyBaseOrderItemControllerOrderItem",
+        "summary": "Retrieve multiple OrderItems",
+        "parameters": [
+          {
+            "name": "fields",
+            "description": "Selects resource fields. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#select\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "s",
+            "description": "Adds search condition. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#search\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "description": "Adds filter condition. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#filter\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "or",
+            "description": "Adds OR condition. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#or\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "sort",
+            "description": "Adds sort by field. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#sort\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "join",
+            "description": "Adds relational resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#join\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "limit",
+            "description": "Limit amount of resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#limit\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "description": "Offset amount of resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#offset\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "description": "Page portion of resources. <a href=\"https://github.com/nestjsx/crud/wiki/Requests#page\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "cache",
+            "description": "Reset cache (if was enabled). <a href=\"https://github.com/nestjsx/crud/wiki/Requests#cache\" target=\"_blank\">Docs</a>",
+            "required": false,
+            "in": "query",
+            "minimum": 0,
+            "maximum": 1,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get many base response",
+            "schema": {}
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "operationId": "createOneBaseOrderItemControllerOrderItem",
+        "summary": "Create a single OrderItem",
+        "parameters": [
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/OrderItem"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Get create one base response",
+            "schema": {
+              "$ref": "#/definitions/OrderItem"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/order-item/bulk": {
+      "post": {
+        "operationId": "createManyBaseOrderItemControllerOrderItem",
+        "summary": "Create multiple OrderItems",
+        "parameters": [
+          {
+            "required": true,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateManyOrderItemDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Get create many base response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderItem"
+              }
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Food Delivery",
+    "description": "Food Delivery API",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "swagger": "2.0",
+  "definitions": {
+    "GetManyUserResponseDto": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "count": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        },
+        "pageCount": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "data",
+        "count",
+        "total",
+        "page",
+        "pageCount"
+      ]
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lasttName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lasttName"
+      ]
+    },
+    "CreateManyUserDto": {
+      "type": "object",
+      "properties": {
+        "bulk": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      },
+      "required": [
+        "bulk"
+      ]
+    },
+    "GetManyOrderResponseDto": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Order"
+          }
+        },
+        "count": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        },
+        "pageCount": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "data",
+        "count",
+        "total",
+        "page",
+        "pageCount"
+      ]
+    },
+    "Order": {
+      "type": "object",
+      "properties": {
+        "customer": {
+          "type": "number"
+        },
+        "orderItems": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "customer",
+        "orderItems"
+      ]
+    },
+    "CreateManyOrderDto": {
+      "type": "object",
+      "properties": {
+        "bulk": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Order"
+          }
+        }
+      },
+      "required": [
+        "bulk"
+      ]
+    },
+    "GetManyOrderItemResponseDto": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem"
+          }
+        },
+        "count": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        },
+        "pageCount": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "data",
+        "count",
+        "total",
+        "page",
+        "pageCount"
+      ]
+    },
+    "OrderItem": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "number"
+        },
+        "price": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "title",
+        "quantity",
+        "price"
+      ]
+    },
+    "CreateManyOrderItemDto": {
+      "type": "object",
+      "properties": {
+        "bulk": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem"
+          }
+        }
+      },
+      "required": [
+        "bulk"
+      ]
+    }
+  },
+  "x-components": {}
+}
