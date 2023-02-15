@@ -38,6 +38,7 @@ async function bootstrap() {
     let subscription = answer.subscription('message_sender-sub')
     subscription.on('message', resp => {
       let message = resp.data.toString()
+      console.log('MESSAGE: ' + message)
       let parsed = JSON.parse(message)
       if (parsed[id] == true) {
         console.log('Received positive response for ' + id)
