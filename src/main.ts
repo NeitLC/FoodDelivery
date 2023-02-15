@@ -29,13 +29,13 @@ async function bootstrap() {
 
   app.use(function(request, response, next) {
     const question = pubsub.topic('message_receiver')
-    const answer = pubsub.topic(' message_sender') 
+    const answer = pubsub.topic('message_sender') 
     
     let id = uuid()
     question.publish(Buffer.from(id)).then(x => {
           console.log('Request published whith id ' + id)
         })
-    let subscription = answer.subscription(' message_sender-sub')
+    let subscription = answer.subscription('message_sender-sub')
     subscription.on('message', resp => {
       let message = resp.data.toString()
       let parsed = JSON.parse(message)
