@@ -1,0 +1,19 @@
+{
+    "sourceFormat": "BIGTABLE",
+    "sourceUris": [
+        "https://googleapis.com/bigtable/projects/steam-thinker-376813/instances/instancems4/tables/instanceTable"
+    ],
+    "bigtableOptions": {
+        "columnFamilies" : [
+            {
+                "familyId": "f1",
+                "type": "INTEGER",
+                "encoding": "BINARY",
+                "columns": [
+                        { "qualifierString": "url", "type": "STRING" },
+                        { "qualifierString": "response", "type": "STRING" }
+                ]
+            }
+        ]
+    }
+}
