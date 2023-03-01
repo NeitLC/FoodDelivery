@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cl2
+  namespace: default
+  labels:
+    app: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: rsiot-ms2
+          image: >-
+            gcr.io/steam-thinker-376813/lab5@sha256:5935c7a779aeeb511b8138564cf5546beaede5976c464e6ce2c1e09eca05bd1c
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ms2-hpa-kida
+  namespace: default
+  labels:
+    app: web
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: cl2
+    apiVersion: apps/v1
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-port-3000
+spec:
+  type: NodePort
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+      nodePort: 30228
